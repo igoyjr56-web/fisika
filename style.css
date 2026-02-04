@@ -66,5 +66,8 @@ body {
 #overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 100; }
 
 .hidden { display: none !important; background-color: #2ecc71; box-shadow: 0 6px #27ae60;}
-.win { background-color: #e74c3c; box-shadow: 0 6px #c0392b; }
+.win {  padding: 25px 50px; font-size: 1.5rem; font-weight: bold;
+    border: none; border-radius: 15px; cursor: pointer; color: white;
+    transition: transform 0.1s;}
+
 
