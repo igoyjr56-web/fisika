@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Math Battle: Power-Up Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="player-area" id="p1-area">
+        <div class="combo-badge" id="p1-combo">COMBO X0</div>
+        <div class="content">
+            <h2 class="question" id="p1-question">READY?</h2>
+            <div class="controls">
+                <button class="btn true" onclick="handleAnswer(1, true)">BENAR</button>
+                <button class="btn false" onclick="handleAnswer(1, false)">SALAH</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hp-container">
+        <div id="hp-bar" class="hp-fill"></div>
+        <div class="center-marker"></div>
+    </div>
+
+    <div class="player-area" id="p2-area">
+        <div class="combo-badge" id="p2-combo">COMBO X0</div>
+        <div class="content">
+            <h2 class="question" id="p2-question">READY?</h2>
+            <div class="controls">
+                <button class="btn true" onclick="handleAnswer(2, true)">BENAR</button>
+                <button class="btn false" onclick="handleAnswer(2, false)">SALAH</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay" class="hidden">
+        <h1 id="winner-text">PEMENANG!</h1>
+        <button onclick="resetGame()">MAIN LAGI</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #121212;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.player-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+#p1-area { transform: rotate(180deg); background-color: #1a1a2e; }
+#p2-area { background-color: #16213e; }
+
+/* Efek Terbakar (Power-up) */
+.burning {
+    box-shadow: inset 0 0 50px #ff4500, inset 0 0 20px #ffae00;
+    animation: shake 0.2s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(180deg); } /* P1 tetap terbalik */
+    50% { transform: translate(-1px, -2px) rotate(180.5deg); }
+    100% { transform: translate(1px, -1px) rotate(180deg); }
+}
+#p2-area.burning { animation: shake-normal 0.2s infinite; }
+@keyframes shake-normal {
+    0% { transform: translate(1px, 1px); }
+    50% { transform: translate(-1px, -2px); }
+    100% { transform: translate(1px, -1px); }
+}
+
+.combo-badge {
+    position: absolute; top: 20px; right: 20px;
+    background: gold; color: black; padding: 5px 15px;
+    border-radius: 20px; font-weight: bold; font-size: 1.2rem;
+    display: none;
+}
+
+.content { text-align: center; width: 100%; z-index: 2; }
+.question { font-size: 3rem; color: white; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+
+.controls { display: flex; gap: 20px; justify-content: center; }
+.btn {
+    padding: 25px 50px; font-size: 1.5rem; font-weight: bold;
+    border: none; border-radius: 15px; cursor: pointer; color: white;
+    transition: transform 0.1s;
+}
+.btn:active { transform: scale(0.9); }
+.true { background-color: #2ecc71; box-shadow: 0 6px #27ae60; }
+.false { background-color: #e74c3c; box-shadow: 0 6px #c0392b; }
+
+/* HP Bar */
+.hp-container { height: 60px; width: 100%; background-color: #e94560; position: relative; border: 4px solid #fff; z-index: 5; }
+.hp-fill { height: 100%; width: 50%; background-color: #0f3460; transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.center-marker { position: absolute; left: 50%; top: 0; width: 6px; height: 100%; background: white; }
+
+#overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 100; }
+.hidden { display: none !important; }
